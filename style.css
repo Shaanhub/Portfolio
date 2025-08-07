@@ -15,8 +15,24 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+/* === Profile Picture Styling (Smaller + Circular) === */
+img.profile-pic {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #8a2be2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: block;
+  margin: 1rem auto;
+}
 
-/* === AOS Scroll Animation Enhancements (applied via data-aos in HTML) === */
+img.profile-pic:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* === AOS Scroll Animations (for elements with data-aos="...") === */
 [data-aos] {
   opacity: 0;
   transition-property: opacity, transform;
@@ -30,7 +46,7 @@ body {
   transform: none;
 }
 
-/* You can also customize specific animations */
+/* Optional custom animation styles */
 [data-aos="fade-up"] {
   transform: translateY(40px);
 }
@@ -48,4 +64,15 @@ body {
 }
 [data-aos="zoom-out"] {
   transform: scale(1.2);
+}
+
+/* Optional: Style for sections if you want glass effect (optional) */
+section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  max-width: 900px;
 }
