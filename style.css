@@ -1,107 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cool Portfolio</title>
+/* Base Refresh */
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1a1a1d, #4e4e50);
+  color: #e0e0e0;
+  line-height: 1.6;
+}
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+/* Header & Typing */
+header {
+  text-align: center;
+  padding: 4rem 1rem;
+  position: relative;
+}
+header h1, header h2 {
+  margin: 0.2rem 0;
+}
+#typed-text {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+.cursor {
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+/* Glassy Sections */
+section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
 
-  <!-- AOS Animation Library -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+/* Headings */
+h2 {
+  font-size: 2rem;
+  color: #f5f5f5;
+  margin-bottom: 1rem;
+  border-left: 5px solid #8a2be2;
+  padding-left: 1rem;
+}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+/* About Image */
+.about img {
+  width: 180px;
+  border-radius: 50%;
+  border: 4px solid #8a2be2;
+  box-shadow: 0 8px 16px rgba(138,43,226,0.5);
+  display: block;
+  margin: 1rem auto;
+}
 
-  <header>
-    <h1>Hi, I'm Alex</h1>
-    <p class="tagline"><span id="typed-text"></span><span class="cursor">|</span></p>
-    <button class="theme-toggle"><i class="fas fa-moon"></i></button>
-  </header>
+/* Skill List */
+.skills li {
+  background: rgba(255,255,255,0.1);
+  padding: 0.6rem 1rem;
+  margin: 0.5rem 0;
+  border-left: 4px solid #8a2be2;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-  </nav>
+/* Projects */
+.project {
+  margin-bottom: 2rem;
+  position: relative;
+  padding: 1rem;
+  border-left: 4px solid #8a2be2;
+}
+.project:hover {
+  background: rgba(138,43,226,0.1);
+  transform: translateX(5px);
+}
 
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <div class="about-wrapper">
-      <img src="profile.jpg" alt="Profile Picture" class="profile-pic" />
-      <p>Hello! I'm a full-stack developer with a passion for creating stunning websites and applications. Let's build something awesome together!</p>
-    </div>
-  </section>
+/* Links & Contact */
+a {
+  color: #8a2be2;
+  text-decoration: none;
+}
+a:hover {
+  text-shadow: 0 0 8px #8a2be2;
+}
 
-  <section id="skills" data-aos="fade-up">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li><i class="fab fa-html5"></i>HTML5</li>
-      <li><i class="fab fa-css3-alt"></i>CSS3</li>
-      <li><i class="fab fa-js"></i>JavaScript</li>
-      <li><i class="fab fa-react"></i>React</li>
-      <li><i class="fab fa-node"></i>Node.js</li>
-      <li><i class="fab fa-python"></i>Python</li>
-    </ul>
-  </section>
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
 
-  <section id="projects" data-aos="zoom-in-up">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>A modern portfolio built with HTML, CSS, and JS with dark mode support.</p>
-      </div>
-      <div class="project-card">
-        <h3>Weather App</h3>
-        <p>Real-time weather app using OpenWeatherMap API with geolocation.</p>
-      </div>
-      <div class="project-card">
-        <h3>Task Manager</h3>
-        <p>Full-featured to-do app with React and Firebase integration.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Alex. All rights reserved.</p>
-  </footer>
-
-  <!-- JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init();
-
-    // Typing animation
-    const text = "Creative Developer | UI/UX Enthusiast | Problem Solver";
-    let index = 0;
-    const speed = 80;
-    const typedText = document.getElementById("typed-text");
-    const cursor = document.querySelector(".cursor");
-
-    function type() {
-      if (index < text.length) {
-        typedText.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, speed);
-      } else {
-        cursor.style.display = "none";
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", type);
-
-    // Dark theme toggle
-    const toggleBtn = document.querySelector(".theme-toggle");
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-theme");
-    });
-  </script>
-</body>
-</html>
+/* Dark Mode Support */
+body.dark-theme {
+  background: #0d0d10;
+  color: #ccc;
+}
+body.dark-theme section {
+  background: rgba(255,255,255,0.02);
+}
