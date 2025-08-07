@@ -1,113 +1,51 @@
-/* Base Refresh */
-* {
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-}
+/* === Animated Gradient Background === */
 body {
-  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #1a1a1d, #4e4e50);
-  color: #e0e0e0;
-  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #1e1e2f, #3b2f63, #0f2027, #2c5364);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #eee;
 }
 
-/* Header & Typing */
-header {
-  text-align: center;
-  padding: 4rem 1rem;
-  position: relative;
-}
-header h1, header h2 {
-  margin: 0.2rem 0;
-}
-#typed-text {
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-}
-.cursor {
-  display: inline-block;
-  animation: blink 0.7s infinite;
-}
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Glassy Sections */
-section {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 800px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+
+/* === AOS Scroll Animation Enhancements (applied via data-aos in HTML) === */
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 0.8s;
+  transition-timing-function: ease-out;
+  will-change: opacity, transform;
 }
 
-/* Headings */
-h2 {
-  font-size: 2rem;
-  color: #f5f5f5;
-  margin-bottom: 1rem;
-  border-left: 5px solid #8a2be2;
-  padding-left: 1rem;
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: none;
 }
 
-/* About Image */
-.about img {
-  width: 180px;
-  border-radius: 50%;
-  border: 4px solid #8a2be2;
-  box-shadow: 0 8px 16px rgba(138,43,226,0.5);
-  display: block;
-  margin: 1rem auto;
+/* You can also customize specific animations */
+[data-aos="fade-up"] {
+  transform: translateY(40px);
 }
-
-/* Skill List */
-.skills li {
-  background: rgba(255,255,255,0.1);
-  padding: 0.6rem 1rem;
-  margin: 0.5rem 0;
-  border-left: 4px solid #8a2be2;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+[data-aos="fade-down"] {
+  transform: translateY(-40px);
 }
-
-/* Projects */
-.project {
-  margin-bottom: 2rem;
-  position: relative;
-  padding: 1rem;
-  border-left: 4px solid #8a2be2;
+[data-aos="fade-left"] {
+  transform: translateX(-40px);
 }
-.project:hover {
-  background: rgba(138,43,226,0.1);
-  transform: translateX(5px);
+[data-aos="fade-right"] {
+  transform: translateX(40px);
 }
-
-/* Links & Contact */
-a {
-  color: #8a2be2;
-  text-decoration: none;
+[data-aos="zoom-in"] {
+  transform: scale(0.8);
 }
-a:hover {
-  text-shadow: 0 0 8px #8a2be2;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* Dark Mode Support */
-body.dark-theme {
-  background: #0d0d10;
-  color: #ccc;
-}
-body.dark-theme section {
-  background: rgba(255,255,255,0.02);
+[data-aos="zoom-out"] {
+  transform: scale(1.2);
 }
