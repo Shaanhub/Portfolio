@@ -1,52 +1,38 @@
-/* Global Variables */
-:root {
-  --primary-color: #4f46e5;
-  --primary-light: #6366f1;
-  --text-dark: #333;
-  --text-light: #f4f4f4;
-  --bg-light: #f9fafb;
-  --bg-dark: #1a1a1a;
-  --card-light: #fff;
-  --card-dark: #2b2b2b;
-  --accent-light: #e0e7ff;
-  --accent-dark: #93c5fd;
-  --accent-dark-hover: #bfdbfe;
-}
-
-/* Base Reset & Smooth Transition */
+/* Base & Smooth transition */
 * {
-  box-sizing: border-box;
   transition: all 0.3s ease-in-out;
-  scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--bg-light);
-  color: var(--text-dark);
+  background: linear-gradient(to bottom, #f4f4f4, #e5e5f7);
+  color: #333;
   line-height: 1.6;
 }
 
 /* Header */
 header {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
   color: #fff;
-  padding: 3rem 1rem 2rem;
+  padding: 3rem 2rem;
   text-align: center;
   position: relative;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {
-  margin: 0;
   font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .tagline {
   font-size: 1.2rem;
-  margin-top: 0.5rem;
-  color: var(--accent-light);
+  color: #dbeafe;
 }
 
 /* Theme Toggle */
@@ -54,56 +40,61 @@ header h1 {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 1.8rem;
-  background: none;
+  font-size: 1.7rem;
+  background: rgba(255, 255, 255, 0.15);
   border: none;
+  border-radius: 50%;
+  padding: 0.6rem;
   cursor: pointer;
   color: #fff;
+  backdrop-filter: blur(6px);
 }
 
 body:not(.dark-theme) .theme-toggle {
-  color: var(--text-dark);
+  color: #333;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .theme-toggle:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 /* Navigation */
 nav {
   display: flex;
   justify-content: center;
-  background: var(--text-dark);
+  background: #333;
   flex-wrap: wrap;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 15px 15px;
 }
 
 nav a {
   color: #fff;
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1.2rem;
   text-decoration: none;
-  font-weight: 500;
+  border-radius: 5px;
+  margin: 0.3rem;
+  transition: background 0.2s ease;
 }
 
-nav a:hover,
-nav a:focus-visible {
-  background-color: var(--primary-color);
-  text-decoration: underline;
-  outline: none;
+nav a:hover {
+  background: #6366f1;
+  text-decoration: none;
 }
 
-/* Main Sections */
+/* Sections */
 section {
   padding: 3rem 1.5rem;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
 }
 
 h2 {
-  font-size: 1.8rem;
-  border-bottom: 3px solid var(--primary-color);
-  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #6366f1;
+  padding-bottom: 0.6rem;
   margin-bottom: 1.5rem;
-  color: var(--primary-color);
+  font-size: 2rem;
 }
 
 /* About Section */
@@ -112,6 +103,7 @@ h2 {
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .profile-pic {
@@ -119,27 +111,34 @@ h2 {
   height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  border: 5px solid var(--primary-color);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: 5px solid #6366f1;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* Skills */
 .skills-list {
   list-style: none;
   padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
 }
 
 .skills-list li {
   font-size: 1.1rem;
-  margin-bottom: 0.6rem;
+  background: #fff;
+  padding: 0.6rem 1rem;
+  border-left: 5px solid #4f46e5;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
 }
 
 .skills-list i {
   margin-right: 10px;
-  color: var(--primary-color);
-  width: 20px;
+  color: #4f46e5;
+  font-size: 1.2rem;
 }
 
 /* Projects Grid */
@@ -151,45 +150,44 @@ h2 {
 }
 
 .project-card {
-  background-color: var(--card-light);
-  border-left: 6px solid var(--primary-color);
+  background: rgba(255, 255, 255, 0.9);
+  border-left: 6px solid #4f46e5;
   padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 180px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .project-card h3 {
   margin-top: 0;
-  color: var(--primary-color);
+  color: #4f46e5;
 }
 
 /* Footer */
 footer {
-  background: var(--text-dark);
+  background: #333;
   color: #fff;
   text-align: center;
-  padding: 1.5rem;
-  font-size: 0.95rem;
+  padding: 1.5rem 1rem;
+  margin-top: 3rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 /* Dark Theme */
 body.dark-theme {
-  background-color: var(--bg-dark);
-  color: var(--text-light);
+  background: #121212;
+  color: #e0e0e0;
 }
 
 body.dark-theme nav {
-  background-color: #222;
+  background-color: #1f1f1f;
 }
 
 body.dark-theme nav a {
@@ -197,27 +195,33 @@ body.dark-theme nav a {
 }
 
 body.dark-theme nav a:hover {
-  background-color: var(--primary-light);
+  background-color: #6366f1;
 }
 
 body.dark-theme section,
 body.dark-theme .project-card {
-  background-color: var(--card-dark);
-  color: var(--text-light);
+  background-color: #1f1f1f;
+  color: #e0e0e0;
 }
 
 body.dark-theme .project-card {
-  border-left-color: var(--primary-light);
+  border-left-color: #818cf8;
+  background-color: #222;
 }
 
 body.dark-theme .profile-pic {
-  border-color: var(--primary-light);
+  border-color: #818cf8;
 }
 
 body.dark-theme a {
-  color: var(--accent-dark);
+  color: #93c5fd;
 }
 
 body.dark-theme a:hover {
-  color: var(--accent-dark-hover);
+  color: #bfdbfe;
+}
+
+body.dark-theme .skills-list li {
+  background-color: #2a2a2a;
+  border-left-color: #6366f1;
 }
