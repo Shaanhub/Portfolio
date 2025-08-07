@@ -1,227 +1,107 @@
-/* Base & Smooth transition */
-* {
-  transition: all 0.3s ease-in-out;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cool Portfolio</title>
 
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #f4f4f4, #e5e5f7);
-  color: #333;
-  line-height: 1.6;
-}
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
-  color: #fff;
-  padding: 3rem 2rem;
-  text-align: center;
-  position: relative;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
-.tagline {
-  font-size: 1.2rem;
-  color: #dbeafe;
-}
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-/* Theme Toggle */
-.theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 1.7rem;
-  background: rgba(255, 255, 255, 0.15);
-  border: none;
-  border-radius: 50%;
-  padding: 0.6rem;
-  cursor: pointer;
-  color: #fff;
-  backdrop-filter: blur(6px);
-}
+  <header>
+    <h1>Hi, I'm Alex</h1>
+    <p class="tagline"><span id="typed-text"></span><span class="cursor">|</span></p>
+    <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+  </header>
 
-body:not(.dark-theme) .theme-toggle {
-  color: #333;
-  background: rgba(0, 0, 0, 0.05);
-}
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+  </nav>
 
-.theme-toggle:hover {
-  transform: scale(1.15);
-}
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <div class="about-wrapper">
+      <img src="profile.jpg" alt="Profile Picture" class="profile-pic" />
+      <p>Hello! I'm a full-stack developer with a passion for creating stunning websites and applications. Let's build something awesome together!</p>
+    </div>
+  </section>
 
-/* Navigation */
-nav {
-  display: flex;
-  justify-content: center;
-  background: #333;
-  flex-wrap: wrap;
-  padding: 0.5rem 1rem;
-  border-radius: 0 0 15px 15px;
-}
+  <section id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li><i class="fab fa-html5"></i>HTML5</li>
+      <li><i class="fab fa-css3-alt"></i>CSS3</li>
+      <li><i class="fab fa-js"></i>JavaScript</li>
+      <li><i class="fab fa-react"></i>React</li>
+      <li><i class="fab fa-node"></i>Node.js</li>
+      <li><i class="fab fa-python"></i>Python</li>
+    </ul>
+  </section>
 
-nav a {
-  color: #fff;
-  padding: 0.75rem 1.2rem;
-  text-decoration: none;
-  border-radius: 5px;
-  margin: 0.3rem;
-  transition: background 0.2s ease;
-}
+  <section id="projects" data-aos="zoom-in-up">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>A modern portfolio built with HTML, CSS, and JS with dark mode support.</p>
+      </div>
+      <div class="project-card">
+        <h3>Weather App</h3>
+        <p>Real-time weather app using OpenWeatherMap API with geolocation.</p>
+      </div>
+      <div class="project-card">
+        <h3>Task Manager</h3>
+        <p>Full-featured to-do app with React and Firebase integration.</p>
+      </div>
+    </div>
+  </section>
 
-nav a:hover {
-  background: #6366f1;
-  text-decoration: none;
-}
+  <footer>
+    <p>© 2025 Alex. All rights reserved.</p>
+  </footer>
 
-/* Sections */
-section {
-  padding: 3rem 1.5rem;
-  max-width: 1100px;
-  margin: auto;
-}
+  <!-- JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init();
 
-h2 {
-  border-bottom: 3px solid #6366f1;
-  padding-bottom: 0.6rem;
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-}
+    // Typing animation
+    const text = "Creative Developer | UI/UX Enthusiast | Problem Solver";
+    let index = 0;
+    const speed = 80;
+    const typedText = document.getElementById("typed-text");
+    const cursor = document.querySelector(".cursor");
 
-/* About Section */
-.about-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+    function type() {
+      if (index < text.length) {
+        typedText.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, speed);
+      } else {
+        cursor.style.display = "none";
+      }
+    }
 
-.profile-pic {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid #6366f1;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
-}
+    document.addEventListener("DOMContentLoaded", type);
 
-/* Skills */
-.skills-list {
-  list-style: none;
-  padding-left: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 0.8rem;
-}
-
-.skills-list li {
-  font-size: 1.1rem;
-  background: #fff;
-  padding: 0.6rem 1rem;
-  border-left: 5px solid #4f46e5;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-}
-
-.skills-list i {
-  margin-right: 10px;
-  color: #4f46e5;
-  font-size: 1.2rem;
-}
-
-/* Projects Grid */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.project-card {
-  background: rgba(255, 255, 255, 0.9);
-  border-left: 6px solid #4f46e5;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-.project-card h3 {
-  margin-top: 0;
-  color: #4f46e5;
-}
-
-/* Footer */
-footer {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1.5rem 1rem;
-  margin-top: 3rem;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
-/* Dark Theme */
-body.dark-theme {
-  background: #121212;
-  color: #e0e0e0;
-}
-
-body.dark-theme nav {
-  background-color: #1f1f1f;
-}
-
-body.dark-theme nav a {
-  color: #fff;
-}
-
-body.dark-theme nav a:hover {
-  background-color: #6366f1;
-}
-
-body.dark-theme section,
-body.dark-theme .project-card {
-  background-color: #1f1f1f;
-  color: #e0e0e0;
-}
-
-body.dark-theme .project-card {
-  border-left-color: #818cf8;
-  background-color: #222;
-}
-
-body.dark-theme .profile-pic {
-  border-color: #818cf8;
-}
-
-body.dark-theme a {
-  color: #93c5fd;
-}
-
-body.dark-theme a:hover {
-  color: #bfdbfe;
-}
-
-body.dark-theme .skills-list li {
-  background-color: #2a2a2a;
-  border-left-color: #6366f1;
-}
+    // Dark theme toggle
+    const toggleBtn = document.querySelector(".theme-toggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-theme");
+    });
+  </script>
+</body>
+</html>
