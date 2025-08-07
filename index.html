@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shantanu | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>Shantanu</h1>
+    <p class="tagline">Aspiring Data Scientist | BIT Mesra</p>
+    <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">🌙</button>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="assets/ShantanuResume.pdf" download>Resume</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-wrapper">
+      <img src="assets/shantanu.jpg" alt="Shantanu" class="profile-pic" />
+      <p>
+        ECE undergrad at BIT Mesra driven by curiosity for data and intelligent systems. Skilled in Python, SQL, Excel, Pandas, and Scikit-learn. I enjoy exploring patterns, building models, and turning data into decisions. Selected in top 500 of <strong>EricssonEdge Academia Program</strong>. <br><br>
+        Currently serving as <strong>Vice President</strong> at the Aerospace Society, BIT Mesra. I’m open to opportunities in data analysis, data science, and applied AI where I can contribute meaningfully and grow as a data professional.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li><i class="fab fa-python"></i> Python</li>
+      <li><i class="fas fa-database"></i> SQL</li>
+      <li><i class="fas fa-table"></i> Excel</li>
+      <li><i class="fas fa-code"></i> Pandas</li>
+      <li><i class="fas fa-code"></i> NumPy</li>
+      <li><i class="fas fa-chart-bar"></i> Matplotlib</li>
+      <li><i class="fab fa-html5"></i> HTML</li>
+      <li><i class="fab fa-css3-alt"></i> CSS</li>
+      <li><i class="fab fa-js-square"></i> JavaScript</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>🎮 TIC TAC TOE - Python</h3>
+        <p>Built a Python-based Tic-Tac-Toe game demonstrating programming skills and control flow logic.</p>
+      </div>
+      <div class="project-card">
+        <h3>📊 BLINKIT Dashboard</h3>
+        <p>Developed interactive dashboards using Power BI, Tableau, and Excel to visualize and track performance. Integrated and analyzed data to deliver actionable insights for decision-making.</p>
+      </div>
+      <div class="project-card">
+        <h3>🌐 Portfolio Website</h3>
+        <p>This site was created using HTML, CSS, and JavaScript to showcase my skills, projects, and professional profile.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><strong>Email:</strong> <a href="mailto:shaan123shantanu@gmail.com">shaan123shantanu@gmail.com</a></p>
+    <p><strong>Phone:</strong> +91 91428 77306</p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shantanu-srivastav-38b067214/" target="_blank">linkedin.com/in/shantanu-srivastav</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/Shaanhub" target="_blank">github.com/Shaanhub</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Shantanu</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      const isDark = document.body.classList.contains('dark-theme');
+      toggleBtn.textContent = isDark ? '☀' : '🌙';
+    });
+  </script>
+</body>
+</html>
